@@ -1,14 +1,41 @@
-# Dependency directories
+# --- System Files ---
+.DS_Store
+Thumbs.db
+*.tmp
+
+# --- Dependencies ---
+# Matches node_modules in root, backend, and frontend
 node_modules/
+package-lock.json
+yarn.lock
 
-# Environment variables (Crucial for security!)
-.env
+# --- Environment & Security ---
+# This is the most important part!
+# It catches .env in the root and inside /backend
+**/.env
+**/.env.local
+**/.env.*.local
 
-# Logs
+# --- Build & Output ---
+# If you eventually add a build step for the web
+dist/
+build/
+out/
+
+# --- Logs ---
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+logs/
+*.log
 
-# OS metadata
-.DS_Store
-Thumbs.db
+# --- Editor / IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- App Specific ---
+# If you start storing local uploads before sending to Supabase
+backend/public/uploads/*
+!backend/public/uploads/.gitkeep
